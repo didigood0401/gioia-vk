@@ -86,3 +86,6 @@ h2.h{font-size:clamp(36px,5vw,58px);line-height:1.08;margin:14px 0 8px}
 :focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 @media(max-width:940px){.hero{grid-template-columns:1fr;gap:38px}.ph{height:740px}.cov{height:380px}body[data-v="2"] .cov{height:500px}.tls{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(3,minmax(0,1fr))}.live{grid-template-columns:1fr;gap:26px}.live video{max-width:300px}.cmp{aspect-ratio:1.5/1}.sw a{padding:0 11px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.cmp.mob div{background-size:150%;background-position:50% 60%}
+.cov img:not(.av){object-position:50% 50%}
