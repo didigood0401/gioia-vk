@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gioia: оформление группы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d2a25;--bg2:#143a33;--gold:#e0bd7c;--tx:#f4eee2;--mut:#b6c4bb}
+body[data-t="1"]{--bg:#2b0f24;--bg2:#3f1835;--gold:#efc6a2;--tx:#f7ece8;--mut:#ccb3c2}
+*{box-sizing:border-box;margin:0}
+body{font:17px/1.55 Manrope,Arial,sans-serif;background:var(--bg);color:var(--tx);transition:background .35s;padding:0 16px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 390px;gap:48px;align-items:center;min-height:100vh;padding:32px 0}
+h1{font:500 clamp(58px,10vw,118px)/.95 "Cormorant Garamond",Georgia,serif;font-style:italic;color:var(--gold)}
+.lead{font-size:20px;margin:14px 0 22px;max-width:440px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:800 14px Manrope,Arial;padding:11px 18px;border-radius:30px;border:1px solid var(--gold);background:none;color:var(--tx);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--gold);color:var(--bg)}
+ul.pts{list-style:none;padding:0;margin-top:22px;color:var(--mut);font-size:16px}
+ul.pts li{padding:7px 0;border-top:1px solid #ffffff22}
+.note{font-size:13px;color:var(--mut);margin-top:14px}
+.ph{position:relative;background:#fff;color:#1b1b1d;border-radius:40px;overflow:hidden;box-shadow:0 30px 80px #0007;border:9px solid #0a0a0c;height:780px;display:flex;flex-direction:column}
+.scr{overflow-y:auto;flex:1}
+.cov{position:relative;height:190px;background:url(img/cover.jpg) 100% 55%/135%}
+.cov:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 34%,transparent 82%);opacity:.95;transition:background .35s}
+.cov b{position:absolute;z-index:2;left:22px;top:48px;font:italic 500 60px/1 "Cormorant Garamond",serif;color:var(--gold)}
+.cov span{position:absolute;z-index:2;left:24px;top:116px;color:#fff;font-size:13px;letter-spacing:.14em}
+.head{display:flex;gap:12px;align-items:center;padding:14px 16px 6px}
+.ava{width:62px;height:62px;border-radius:50%;background:var(--bg);color:var(--gold);display:flex;align-items:center;justify-content:center;font:italic 500 38px "Cormorant Garamond",serif;border:2px solid var(--gold);flex:none;transition:background .35s}
+.head b{display:block}.head small{color:#6d6d73}
+.desc{padding:4px 16px 12px;font-size:15px}
+.cta{display:block;margin:0 16px 14px;background:var(--bg);color:var(--gold);text-align:center;padding:13px;border-radius:10px;font-weight:800;border:0;width:calc(100% - 32px);font:800 15px Manrope,Arial;cursor:pointer;transition:background .35s}
+.strip{display:flex;gap:10px;overflow-x:auto;padding:12px 16px 14px;background:#f2f3f5;scroll-snap-type:x mandatory}
+.t{flex:none;width:124px;border:0;background:none;padding:0;cursor:pointer;font:600 13px/1.25 Manrope,Arial;color:#1b1b1d;text-align:center;scroll-snap-align:start;transition:transform .15s}
+.t:active{transform:scale(.96)}
+.t i{display:flex;align-items:flex-end;justify-content:center;position:relative;height:124px;border-radius:12px;overflow:hidden;background-size:cover;background-position:center;margin-bottom:7px}
+.t i:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,var(--bg));opacity:.86;transition:background .35s}
+.t i:after{content:"";position:absolute;inset:7px;border:1px solid var(--gold);border-radius:7px}
+.t em{position:relative;z-index:1;font:italic 500 25px/1 "Cormorant Garamond",serif;color:var(--gold);margin-bottom:15px}
+.goods{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px}
+.goods div{height:150px;border-radius:10px;background-size:cover;background-position:center}
+.sheet{position:absolute;inset:0;z-index:5;background:#fff;transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;visibility:hidden}
+.sheet.on{transform:none;visibility:visible}
+.sheet .im{height:220px;background-size:cover;background-position:center;position:relative}
+.sheet h2{font:italic 500 38px/1.05 "Cormorant Garamond",serif;padding:18px 20px 6px}
+.sheet ul{padding:0 20px 0 38px;font-size:15px}
+.sheet li{margin:8px 0}
+.x{position:absolute;right:12px;top:12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:22px;cursor:pointer}
+.sheet .cta{margin-top:auto;margin-bottom:18px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media(max-width:860px){.wrap{grid-template-columns:1fr;gap:26px}.ph{max-width:390px;width:100%;margin:0 auto;height:720px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-t="0">
+<div class="wrap">
+<div>
+<h1>Gioia</h1>
+<p class="lead">Группа, в которой хочется сразу выбрать украшение и понятно, как его заказать.</p>
+<div class="tabs"><button type="button" data-t="0" aria-pressed="true">Изумруд и золото</button><button type="button" data-t="1" aria-pressed="false">Слива и шампань</button></div>
+<ul class="pts"><li>Обложка, аватар и 5 кнопок-плиток по Вашему макету</li><li>Нажмите на плитку в телефоне: откроется страница раздела</li><li>Единый стиль товаров и постов</li></ul>
+<p class="note">Демо: фото стоковые (StockSnap, CC0), тексты условные. В работе будут Ваши фото и условия.</p>
+</div>
+<div class="ph">
+<div class="scr">
+<div class="cov"><b>Gioia</b><span>УКРАШЕНИЯ С РАДОСТЬЮ</span></div>
+<div class="head"><div class="ava">G</div><div><b>Gioia · украшения</b><small>Бижутерия ручной работы</small></div></div>
+<p class="desc">Украшения, которые радуют каждый день. Выбирайте в товарах, а как заказать - в кнопках ниже.</p>
+<button class="cta" type="button" data-o="0">Написать и заказать</button>
+<div class="strip" id="strip"></div>
+<div class="goods"><div style="background-image:url(img/t1.jpg)"></div><div style="background-image:url(img/t2.jpg)"></div></div>
+</div>
+<div class="sheet" id="sh" aria-hidden="true"><button class="x" id="x" type="button" aria-label="Закрыть">×</button><div class="im" id="sIm"></div><h2 id="sT"></h2><ul id="sL"></ul><button class="cta" type="button">Написать в сообщения</button></div>
+</div>
+</div>
+<script>
+var I=[['Как заказать','t1.jpg',['Выберите украшение в товарах','Напишите нам в сообщения','Подтвердим наличие и детали','Оплата и отправка']],
+['Доставка и оплата','t2.jpg',['Способы и сроки доставки','Варианты оплаты','Упаковка в подарок']],
+['Отзывы','t3.jpg',['Фото от покупательниц','Реальные истории','Оставить свой отзыв']],
+['О Gioia','cover.jpg',['Кто создаёт украшения','Из чего они сделаны','Почему Gioia значит радость']],
+['Уход за украшениями','t5.jpg',['Как хранить','Как чистить','Чего стоит избегать']]];
+var st=document.getElementById('strip'),sh=document.getElementById('sh');
+I.forEach(function(a,n){var b=document.createElement('button');b.className='t';b.type='button';b.innerHTML='<i style="background-image:url(img/'+a[1]+')"><em>'+(n+1)+'</em></i>'+a[0];b.onclick=function(){open(n)};st.appendChild(b)});
+function open(n){var a=I[n];sIm.style.backgroundImage='url(img/'+a[1]+')';sT.textContent=a[0];sL.innerHTML=a[2].map(function(x){return '<li>'+x+'</li>'}).join('');sh.classList.add('on');sh.setAttribute('aria-hidden','false')}
+document.getElementById('x').onclick=function(){sh.classList.remove('on');sh.setAttribute('aria-hidden','true')};
+document.querySelector('[data-o]').onclick=function(){open(0)};
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.body.dataset.t=b.dataset.t;document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}});
+</script>
+</body>
+</html>
