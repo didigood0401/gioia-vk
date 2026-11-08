@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gioia: витрина ВКонтакте</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3d0f22;--accent:#7a1c3f;--paper:#f7f0e6;--paper2:#ece1d1;--line:#c9a877;--mut:#6f5a58}
+body[data-t="1"]{--ink:#14263c;--accent:#23476e;--paper:#f2f0ea;--paper2:#dfe0da;--line:#b39a6d;--mut:#55606b}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{font:17px/1.55 Manrope,Arial,sans-serif;background:var(--paper);color:var(--ink);transition:background .35s,color .35s;overflow-x:hidden}
+button{font:inherit;color:inherit}
+.it{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{display:grid;grid-template-columns:1fr 390px;gap:56px;align-items:center;min-height:100vh;padding:32px 0}
+.tr{font-size:15px;color:var(--mut);margin-bottom:6px}
+h1{font-size:clamp(72px,13vw,150px);line-height:.95;color:var(--accent);transition:color .35s}
+.lead{font-size:21px;line-height:1.4;margin:18px 0 24px;max-width:470px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font-weight:800;font-size:14px;min-height:44px;padding:0 18px;border-radius:30px;border:1px solid var(--accent);background:none;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--accent);color:var(--paper)}
+.hint{margin-top:22px;color:var(--mut);font-size:15px;max-width:440px}
+.ph{position:relative;background:#fff;color:#1b1b1d;border-radius:40px;overflow:hidden;box-shadow:0 30px 70px #3d0f2240;border:9px solid #17120f;height:790px;display:flex;flex-direction:column;width:100%;max-width:390px;margin:0 auto}
+.scr{overflow-y:auto;flex:1}
+.cov{position:relative;height:176px;background:var(--paper) url(../img/cover.jpg) -46% 55%/125% no-repeat}
+.cov:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper) 30%,transparent 52%);transition:background .35s}
+.cov b{position:absolute;z-index:2;left:20px;top:48px;font:italic 500 54px/1 "Playfair Display",serif;color:var(--accent)}
+.cov span{position:absolute;z-index:2;left:22px;top:112px;font-size:13px;color:var(--ink)}
+.head{display:flex;gap:12px;align-items:center;padding:14px 16px 6px}
+.ava{width:62px;height:62px;border-radius:50%;background:var(--paper);color:var(--accent);display:flex;align-items:center;justify-content:center;font:italic 500 36px "Playfair Display",serif;border:1px solid var(--line);flex:none}
+.head b{display:block}.head small{color:#6d6d73}
+.desc{padding:4px 16px 12px;font-size:15px}
+.cta{display:block;width:calc(100% - 32px);margin:0 16px 14px;background:var(--accent);color:#fff;text-align:center;min-height:46px;border-radius:10px;border:0;font-weight:800;font-size:15px;cursor:pointer;transition:background .35s}
+.strip{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;padding:12px 16px 14px;background:#f2f3f5;scroll-snap-type:x mandatory;scroll-padding-left:16px}
+.t{flex:none;width:112px;border:0;background:none;padding:0;cursor:pointer;font-weight:600;font-size:13px;line-height:1.25;color:#1b1b1d;text-align:center;scroll-snap-align:start;transition:transform .15s}
+.t:active{transform:scale(.96)}
+.tile{display:block;position:relative;width:112px;height:112px;border-radius:12px;background:var(--paper);margin-bottom:7px;overflow:hidden;transition:background .35s}
+.tile i{position:absolute;left:18px;right:18px;top:12px;bottom:0;border-radius:40px 40px 0 0;background-size:cover;background-position:center}
+.tile:after{content:"";position:absolute;left:12px;right:12px;top:6px;bottom:-1px;border:1px solid var(--line);border-bottom:0;border-radius:46px 46px 0 0}
+.sec{padding:14px 16px 4px;font-weight:800}
+.goods{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 16px 18px}
+.g{border:0;background:none;padding:0;text-align:left;cursor:pointer;font-size:13px}
+.g i{display:block;height:136px;border-radius:10px;background-size:cover;background-position:center;margin-bottom:5px}
+.sheet{position:absolute;inset:0;z-index:5;background:var(--paper);color:var(--ink);transform:translateY(102%);transition:transform .38s cubic-bezier(.22,1,.36,1),background .35s;display:flex;flex-direction:column;visibility:hidden}
+.sheet.on{transform:none;visibility:visible}
+.sh-top{position:relative;height:150px;flex:none;background-size:cover;background-position:center}
+.x{position:absolute;right:12px;top:12px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:#000a;color:#fff;font-size:22px;cursor:pointer}
+.sh-b{flex:1;overflow-y:auto;padding:16px 20px 10px}
+.sh-b h2{font:italic 500 34px/1.1 "Playfair Display",serif;color:var(--accent);margin-bottom:12px}
+.sheet .cta{margin:10px 16px 16px;flex:none}
+.step{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--paper2);font-size:15px}
+.step b{font:italic 500 24px/1 "Playfair Display",serif;color:var(--accent);width:18px;flex:none}
+.msg{margin-top:12px;background:#fff;border-radius:14px 14px 14px 4px;padding:11px 13px;font-size:14px;color:#1b1b1d}
+.msg small{display:block;color:#6d6d73;margin-bottom:3px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chips button{min-height:44px;padding:0 14px;border-radius:24px;border:1px solid var(--line);background:none;font-size:14px;font-weight:600;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.info{font-size:15px}.info p{padding:8px 0;border-top:1px solid var(--paper2)}
+.rev{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:14px;color:#1b1b1d}
+.rev b{display:block;margin-bottom:2px}
+details{border-top:1px solid var(--paper2)}
+summary{min-height:46px;display:flex;align-items:center;font-weight:800;font-size:15px;cursor:pointer}
+details p{font-size:15px;padding-bottom:10px}
+.kit{padding:24px 0 70px}
+.kit h3{font-size:clamp(36px,5vw,54px);line-height:1.1;color:var(--accent);margin-bottom:26px}
+.cover-b{position:relative;aspect-ratio:1920/768;border-radius:6px;overflow:hidden;background:var(--paper) url(../img/cover.jpg) -130% 50%/110% no-repeat}
+.cover-b:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper) 30%,transparent 50%);transition:background .35s}
+.cover-b div{position:absolute;z-index:2;left:7%;top:50%;transform:translateY(-50%)}
+.cover-b b{display:block;font:italic 500 clamp(40px,9vw,104px)/1 "Playfair Display",serif;color:var(--accent)}
+.cover-b span{font-size:clamp(13px,1.6vw,19px)}
+.row{display:flex;gap:30px;align-items:flex-end;flex-wrap:wrap;margin-top:30px}
+.ava.big{width:128px;height:128px;font-size:72px}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}
+.tiles .tile{margin:0}
+.cap{font-size:15px;color:var(--mut);margin-top:10px}
+.list{list-style:none;padding:0;margin-top:30px;max-width:640px}
+.list li{padding:10px 0;border-top:1px solid var(--line)}
+.note{font-size:14px;color:var(--mut);margin-top:18px;max-width:640px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media(max-width:880px){.top{grid-template-columns:1fr;gap:28px;min-height:0}.ph{height:720px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-t="0">
+<div class="wrap">
+<section class="top">
+<div>
+<p class="tr">gioia [джойя] - по-итальянски «радость»</p>
+<h1 class="it">Gioia</h1>
+<p class="lead">Группа как маленькая итальянская витрина: каждая кнопка - окно, за которым сразу понятно, что делать дальше.</p>
+<div class="tabs"><button type="button" data-t="0" aria-pressed="true">Вишня и слоновая кость</button><button type="button" data-t="1" aria-pressed="false">Полночь и лён</button></div>
+<p class="hint">Нажмите на окна в телефоне или на украшение - сообщение о заказе заполнится само.</p>
+</div>
+<div class="ph">
+<div class="scr">
+<div class="cov"><b>Gioia</b><span>Украшения с радостью</span></div>
+<div class="head"><div class="ava">G</div><div><b>Gioia · украшения</b><small>Бижутерия</small></div></div>
+<p class="desc">Украшения, которые радуют каждый день. Как заказать и всё о доставке - в окнах ниже.</p>
+<button class="cta" type="button" id="ctaMain">Написать и заказать</button>
+<div class="strip" id="strip"></div>
+<p class="sec">Товары</p>
+<div class="goods">
+<button class="g" type="button" data-p="Подвеска с зелёными камнями"><i style="background-image:url(../img/t1.jpg)"></i>Подвеска</button>
+<button class="g" type="button" data-p="Кольцо с крупным камнем"><i style="background-image:url(../img/cover.jpg)"></i>Кольцо</button>
+</div>
+</div>
+<div class="sheet" id="sh" aria-hidden="true">
+<button class="x" id="x" type="button" aria-label="Закрыть">×</button>
+<div class="sh-top" id="sIm"></div>
+<div class="sh-b" id="sB"></div>
+<button class="cta" type="button" id="sC">Написать в сообщения</button>
+</div>
+</div>
+</section>
+<section class="kit">
+<h3 class="it">Что войдёт в оформление</h3>
+<div class="cover-b"><div><b>Gioia</b><span>Украшения с радостью</span></div></div>
+<p class="cap">Обложка для компьютера и телефона: важное стоит в центре и не обрезается.</p>
+<div class="row">
+<div><div class="ava big">G</div><p class="cap">Аватар</p></div>
+<div><div class="tiles" id="tiles"></div><p class="cap">5 окон-кнопок по Вашему макету: Как заказать, Доставка и оплата, Отзывы, О Gioia, Уход за украшениями</p></div>
+</div>
+<ul class="list"><li>Страницы всех 5 разделов с Вашими условиями</li><li>Готовое сообщение для заказа в один клик</li><li>Шаблоны постов и карточек в едином стиле</li><li>Файлы для загрузки и настройка в группе</li></ul>
+<p class="note">Демо: фото стоковые (StockSnap, CC0), условия и отзывы показаны как образец оформления. В работе будут Ваши фото, цены и настоящие отзывы.</p>
+</section>
+</div>
+<script>
+var pick='украшение';
+var N=['Как заказать','Доставка и оплата','Отзывы','О Gioia','Уход за украшениями'],P=['t1.jpg','t2.jpg','t3.jpg','cover.jpg','t5.jpg'];
+var D={'Почта':'Почта России: срок и стоимость зависят от адреса, рассчитаем перед оплатой.','СДЭК':'СДЭК: до пункта выдачи или курьером, рассчитаем перед оплатой.','Подарок':'Подарочная упаковка и открытка с Вашими словами - по запросу.'};
+function msgHtml(){return '<div class="msg"><small>Сообщение уже заполнено</small>Здравствуйте! Хочу заказать: '+pick+'. Подскажите, пожалуйста, есть ли в наличии?</div>'}
+function body(n){
+ if(n==0)return '<h2>'+N[0]+'</h2>'+[['Выберите','украшение в товарах группы'],['Напишите','нам: сообщение уже готово'],['Подтвердим','наличие, доставку и сумму'],['Оплатите','и ждите посылку']].map(function(s,i){return '<div class="step"><b>'+(i+1)+'</b><span><strong>'+s[0]+'</strong> '+s[1]+'</span></div>'}).join('')+msgHtml();
+ if(n==1)return '<h2>'+N[1]+'</h2><div class="chips" id="ch">'+Object.keys(D).map(function(k,i){return '<button type="button" aria-pressed="'+(i==0)+'" data-k="'+k+'">'+k+'</button>'}).join('')+'</div><div class="info"><p id="dv">'+D['Почта']+'</p><p>Оплата: перевод или ссылка на оплату - после подтверждения заказа.</p></div>';
+ if(n==2)return '<h2>'+N[2]+'</h2>'+[1,2,3].map(function(i){return '<div class="rev"><b>Имя покупательницы</b>Здесь будет настоящий отзыв с фото украшения. Образец карточки '+i+'.</div>'}).join('');
+ if(n==3)return '<h2>'+N[3]+'</h2><div class="info"><p>Gioia по-итальянски значит «радость». С этого слова начинается рассказ о бренде.</p><p>Здесь будет Ваша история: кто создаёт украшения, из чего и для кого.</p></div>';
+ return '<h2>'+N[4]+'</h2>'+[['Вода','Снимайте украшения перед душем, бассейном и уборкой.'],['Духи и крем','Сначала косметика, украшение - в последнюю очередь.'],['Хранение','Отдельно от других изделий, в мешочке или футляре, в сухом месте.'],['Чистка','Мягкой сухой тканью, без абразивов и агрессивной химии.']].map(function(s){return '<details><summary>'+s[0]+'</summary><p>'+s[1]+'</p></details>'}).join('');
+}
+var sh=document.getElementById('sh'),sB=document.getElementById('sB'),sIm=document.getElementById('sIm');
+function open_(n){sIm.style.backgroundImage='url(../img/'+P[n]+')';sB.innerHTML=body(n);sB.scrollTop=0;sh.classList.add('on');sh.setAttribute('aria-hidden','false');
+ var c=document.getElementById('ch');if(c)c.onclick=function(e){var k=e.target.dataset.k;if(!k)return;document.getElementById('dv').textContent=D[k];c.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b===e.target)})}}
+function tile(p){return '<span class="tile"><i style="background-image:url(../img/'+p+')"></i></span>'}
+var st=document.getElementById('strip');
+N.forEach(function(a,n){var b=document.createElement('button');b.className='t';b.type='button';b.innerHTML=tile(P[n])+a;b.onclick=function(){open_(n)};st.appendChild(b)});
+document.getElementById('tiles').innerHTML=P.map(tile).join('');
+document.getElementById('x').onclick=function(){sh.classList.remove('on');sh.setAttribute('aria-hidden','true')};
+document.getElementById('ctaMain').onclick=function(){open_(0)};
+document.getElementById('sC').onclick=function(){sB.scrollTop=sB.scrollHeight};
+document.querySelectorAll('.g').forEach(function(b){b.onclick=function(){pick=b.dataset.p;open_(0)}});
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.body.dataset.t=b.dataset.t;document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}});
+</script>
+</body>
+</html>
